@@ -12,7 +12,11 @@ This project is released under the [MIT license](LICENSE). Please make sure you 
 
 ### :exclamation: Prerequisites
 
-You need to have the latest/LTS [node](https://nodejs.org/en/download/) and [npm](https://www.npmjs.com/get-npm) versions installed in order to use Victor Hugo.
+You need [node](https://nodejs.org/en/download/) and [npm](https://www.npmjs.com/get-npm) installed in order to use Victor Hugo. This is a legacy build; `.nvmrc` records its original Node version.
+
+Install the standalone [Hugo](https://gohugo.io/installation/) executable and make sure `hugo version` works before running the development or build commands. Use Hugo **0.55.6** to match `HUGO_VERSION` in `netlify.toml`. Netlify supplies that executable from the existing build setting; local machines need their own installation.
+
+The old `hugo-bin` npm downloader is intentionally not used: its dependency chain includes an unmaintained archive extractor affected by [GHSA-hrh2-vp3x-79xf](https://github.com/advisories/GHSA-hrh2-vp3x-79xf). Installing Hugo separately removes that chain from npm and Yarn installs without changing the site's Hugo version.
 
 Next step, clone this repository and run:
 
